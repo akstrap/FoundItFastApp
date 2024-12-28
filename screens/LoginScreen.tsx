@@ -1,7 +1,12 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {NavigationProp} from '@react-navigation/native';
 
-const LoginScreen: React.FC = ({navigation}) => {
+type LoginScreenProps = {
+  navigation: NavigationProp<any>;
+};
+
+const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* App Logo */}
@@ -13,12 +18,12 @@ const LoginScreen: React.FC = ({navigation}) => {
       {/* Buttons */}
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Home')}>
+        onPress={() => navigation.navigate('LoginWithGoogle')}>
         <Text style={styles.buttonText}>LOGIN</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Home')}>
+        onPress={() => navigation.navigate('SignUp')}>
         <Text style={styles.buttonText}>SIGN UP</Text>
       </TouchableOpacity>
     </View>
@@ -30,32 +35,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff', // Adjust this to match the design
   },
   logo: {
-    fontSize: 36,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#FF6F61', // Adjust the color as per the design
-    marginBottom: 10,
   },
   subtitle: {
     fontSize: 16,
-    color: '#000',
-    marginBottom: 30,
-    textAlign: 'center',
+    marginVertical: 20,
   },
   button: {
-    width: '80%',
-    padding: 15,
-    backgroundColor: '#DDE4E0', // Adjust button background color
-    borderRadius: 8,
-    alignItems: 'center',
+    backgroundColor: '#007BFF',
+    padding: 10,
     marginVertical: 10,
+    borderRadius: 5,
   },
   buttonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000', // Text color
+    color: '#FFFFFF',
+    fontSize: 16,
   },
 });
 
